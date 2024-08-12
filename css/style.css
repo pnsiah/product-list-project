@@ -1,0 +1,334 @@
+:root {
+  --red: hsl(14, 86%, 42%);
+  --green: hsl(159, 69%, 38%);
+  --rose-50: hsl(20, 50%, 98%);
+  --rose-100: hsl(13, 31%, 94%);
+  --rose-300: hsl(14, 25%, 72%);
+  --rose-400: hsl(7, 20%, 60%);
+  --rose-500: hsl(12, 20%, 44%);
+  --rose-900: hsl(14, 65%, 9%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  background-color: var(--rose-100);
+  font-family: "Red Hat Text";
+  color: var(--rose-900);
+}
+
+main {
+  margin: 0 auto;
+  display: grid;
+  width: 90vw;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  main {
+    padding: 2rem;
+    grid-template-columns: 70% 30%;
+  }
+}
+
+.dessert-header {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.desserts-wrapper {
+  display: grid;
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 600px) {
+  .desserts-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .desserts-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dessert-image,
+.dessert-image > img {
+  border-radius: 0.25rem;
+}
+
+.dessert-image {
+  position: relative;
+}
+
+.add-to-cart {
+  /* width: clamp(60%, 75%, 600px); */
+  /* max-width: 500px; */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  /* padding: 0 1.5rem; */
+}
+
+/* @media screen and (min-width: 400px) {
+  .add-to-cart {
+    width: 200px;
+  }
+} */
+
+.btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  color: var(--rose-100);
+  background-color: var(--red);
+  border-radius: 2em;
+  cursor: pointer;
+}
+
+.add-button {
+  display: flex;
+  background: white;
+  color: var(--rose-900);
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--rose-400);
+}
+
+@media screen and (min-width: 400px) {
+  .add-button {
+    padding: 0.7rem 0.5rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .add-button {
+    padding: 0.6rem 0.7rem;
+  }
+}
+.button-text {
+  display: block;
+  margin-left: min(-5%, 0.5rem);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.dessert-info {
+  margin-top: 1.75rem;
+}
+
+.dessert-info > * {
+  padding-bottom: 0.5rem;
+}
+.dessert-name {
+  color: var(--rose-500);
+  font-size: 0.9rem;
+}
+.dessert-text {
+  color: var(--rose-900);
+  font-weight: 700;
+}
+.dessert-price {
+  color: var(--red);
+}
+
+.options {
+  background-color: var(--red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: inherit;
+}
+
+.custom-checkbox {
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
+
+.increment,
+.decrement {
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  transition: fill 0.3s ease; /* Optional: for smooth color change */
+}
+
+input[type="checkbox"]#decrement:active
+  ~ label[for="decrement"].custom-checkbox {
+  background: white;
+  color: var(--red);
+}
+
+input[type="checkbox"]#increment:active
+  ~ label[for="increment"].custom-checkbox {
+  background: white;
+  color: var(--red);
+}
+
+input[type="checkbox"]#decrement:active
+  ~ label[for="decrement"].custom-checkbox
+  svg,
+input[type="checkbox"]#increment:active
+  ~ label[for="increment"].custom-checkbox
+  svg {
+  fill: currentColor;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.count {
+  color: var(--rose-100);
+}
+
+.selected,
+.confirmation-body {
+  background-color: var(--rose-50);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.cart-header-text {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.single-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem;
+  border-bottom: 1px solid var(--rose-400);
+}
+
+.single-item-prices {
+  padding: 0.4rem 0;
+}
+.qty {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.single-price {
+  color: var(--rose-500);
+  padding-right: 0.3rem;
+}
+
+.single-item-total {
+  font-weight: 700;
+  color: var(--rose-400);
+}
+
+.delete-icon {
+  border-radius: 50%;
+  border: 1.5px solid var(--rose-400);
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.order-text {
+  color: var(--rose-400);
+}
+
+.order-total {
+  color: var(--rose-900);
+}
+
+.carbon-neutral {
+  display: flex;
+  gap: 0.7rem;
+  padding: 1rem;
+  background-color: var(--rose-100);
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.carbon-neutral-text {
+  color: var(--rose-500);
+}
+.carbon-highlighted {
+  color: var(--rose-900);
+  font-weight: 700;
+}
+
+.confirm-section {
+  margin-block: 1rem;
+}
+
+.confirmation-body {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.confirmation-icon {
+  padding-block: 0.5rem;
+}
+
+.confirmation-header {
+  padding-bottom: 1rem;
+}
+.confirmation-header-text {
+  width: min-content;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.confirmation-text {
+  color: var(--rose-400);
+}
+
+.confirmation-item-wrapper {
+  background: var(--rose-100);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.confirmation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--rose-400);
+}
+
+.item-thumbnail {
+  width: 3rem;
+}
+
+.confirmation-info {
+  margin-left: -4rem;
+}
