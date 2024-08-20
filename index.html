@@ -26,8 +26,8 @@
     <main>
       <section class="desserts">
         <h2 class="dessert-header">Desserts</h2>
-        <div class="desserts-wrapper">
-          <article class="single-dessert">
+        <div class="desserts-wrapper" id="desserts-wrapper">
+          <!-- <article class="single-dessert">
             <div class="dessert-image">
               <img
                 src="./assets/images/image-waffle-mobile.jpg"
@@ -68,14 +68,13 @@
               <p class="dessert-text">Waffle with Berries</p>
               <h4 class="dessert-price">6.50</h4>
             </div>
-          </article>
+          </article> -->
         </div>
       </section>
 
       <section class="cart">
         <div class="cart-header">
           <p class="cart-header-text">Your Cart <span class="qty">(0)</span></p>
-          <div class="cart-info"></div>
         </div>
 
         <!-- empty cart -->
@@ -136,110 +135,46 @@
             />
           </svg>
         </div>
-      </section>
 
-      <!-- change for button -->
-      <div class="options">
-        <input type="checkbox" id="decrement" class="decrement" />
-        <label for="decrement" class="custom-checkbox">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="10"
-            height="10"
-            fill="hsl(20, 50%, 98%)"
-            viewBox="0 0 10 2"
-          >
-            <path fill="#currentColor" d="M0 .375h10v1.25H0V.375Z" />
-          </svg>
-        </label>
+        <div class="cart-info"></div>
 
-        <div class="count">1</div>
-
-        <input type="checkbox" id="increment" class="increment" />
-        <label for="increment" class="custom-checkbox">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="10"
-            height="10"
-            fill="hsl(20, 50%, 98%)"
-            `
-            viewBox="0 0 10 10"
-          >
-            <path
-              fill="#currentColor"
-              d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"
-            />
-          </svg>
-        </label>
-      </div>
-
-      <!-- end of options -->
-
-      <!-- selected  -->
-      <div class="selected">
-        <div class="cart-header">
-          <p class="cart-header-text">Your Cart <span class="qty">(7)</span></p>
-        </div>
-        <div class="selected-items">
-          <div class="single-item">
-            <div class="single-item-info">
-              <h4 class="single-item-name">Classic Titramisu</h4>
-              <div class="single-item-prices">
-                <h4 class="qty">1x</h4>
-                <span class="single-price">@$5.50</span>
-                <span class="single-item-total">$5.50</span>
-              </div>
-            </div>
-            <div class="delete-icon">
+        <div class="total-wrapper hide">
+          <div class="order-total">
+            <h4 class="order-text">Order Total</h4>
+            <h2 class="order-total">$46.50</h2>
+          </div>
+          <div class="carbon-neutral">
+            <span class="carbon-neutral-logo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="10"
-                height="10"
+                width="21"
+                height="20"
                 fill="none"
-                viewBox="0 0 10 10"
+                viewBox="0 0 21 20"
               >
                 <path
-                  fill="#CAAFA7"
-                  d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+                  fill="#1EA575"
+                  d="M8 18.75H6.125V17.5H8V9.729L5.803 8.41l.644-1.072 2.196 1.318a1.256 1.256 0 0 1 .607 1.072V17.5A1.25 1.25 0 0 1 8 18.75Z"
+                />
+                <path
+                  fill="#1EA575"
+                  d="M14.25 18.75h-1.875a1.25 1.25 0 0 1-1.25-1.25v-6.875h3.75a2.498 2.498 0 0 0 2.488-2.747 2.594 2.594 0 0 0-2.622-2.253h-.99l-.11-.487C13.283 3.56 11.769 2.5 9.875 2.5a3.762 3.762 0 0 0-3.4 2.179l-.194.417-.54-.072A1.876 1.876 0 0 0 5.5 5a2.5 2.5 0 1 0 0 5v1.25a3.75 3.75 0 0 1 0-7.5h.05a5.019 5.019 0 0 1 4.325-2.5c2.3 0 4.182 1.236 4.845 3.125h.02a3.852 3.852 0 0 1 3.868 3.384 3.75 3.75 0 0 1-3.733 4.116h-2.5V17.5h1.875v1.25Z"
                 />
               </svg>
-            </div>
+            </span>
+            <p class="carbon-neutral-text">
+              This is a
+              <span class="carbon-highlighted">carbon-neutral</span> delivery
+            </p>
+          </div>
+
+          <div class="confirm-section">
+            <button class="confirm-btn btn">Confirm Order</button>
           </div>
         </div>
-        <div class="order-total">
-          <h4 class="order-text">Order Total</h4>
-          <h2 class="order-total">$46.50</h2>
-        </div>
-        <div class="carbon-neutral">
-          <span class="carbon-neutral-logo">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="21"
-              height="20"
-              fill="none"
-              viewBox="0 0 21 20"
-            >
-              <path
-                fill="#1EA575"
-                d="M8 18.75H6.125V17.5H8V9.729L5.803 8.41l.644-1.072 2.196 1.318a1.256 1.256 0 0 1 .607 1.072V17.5A1.25 1.25 0 0 1 8 18.75Z"
-              />
-              <path
-                fill="#1EA575"
-                d="M14.25 18.75h-1.875a1.25 1.25 0 0 1-1.25-1.25v-6.875h3.75a2.498 2.498 0 0 0 2.488-2.747 2.594 2.594 0 0 0-2.622-2.253h-.99l-.11-.487C13.283 3.56 11.769 2.5 9.875 2.5a3.762 3.762 0 0 0-3.4 2.179l-.194.417-.54-.072A1.876 1.876 0 0 0 5.5 5a2.5 2.5 0 1 0 0 5v1.25a3.75 3.75 0 0 1 0-7.5h.05a5.019 5.019 0 0 1 4.325-2.5c2.3 0 4.182 1.236 4.845 3.125h.02a3.852 3.852 0 0 1 3.868 3.384 3.75 3.75 0 0 1-3.733 4.116h-2.5V17.5h1.875v1.25Z"
-              />
-            </svg>
-          </span>
-          <p class="carbon-neutral-text">
-            This is a
-            <span class="carbon-highlighted">carbon-neutral</span> delivery
-          </p>
-        </div>
-        <div class="confirm-section">
-          <button class="btn">Confirm Order</button>
-        </div>
-      </div>
-      <!-- order-confirmation -->
-      <div class="confirmation">
+      </section>
+
+      <div class="confirmation hide">
         <div class="confirmation-backdrop">
           <div class="confirmation-body">
             <div class="confirmation-icon">
@@ -289,7 +224,7 @@
               <h2 class="order-total">$46.50</h2>
             </div>
             <div class="start-order">
-              <button class="btn">Start New Order</button>
+              <button class="new-order btn">Start New Order</button>
             </div>
           </div>
         </div>
@@ -297,5 +232,6 @@
 
       <!-- end of confirmation -->
     </main>
+    <script src="../js/script.js"></script>
   </body>
 </html>

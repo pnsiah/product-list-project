@@ -79,13 +79,10 @@ main {
 }
 
 .add-to-cart {
-  /* width: clamp(60%, 75%, 600px); */
-  /* max-width: 500px; */
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  /* padding: 0 1.5rem; */
 }
 
 /* @media screen and (min-width: 400px) {
@@ -95,6 +92,7 @@ main {
 } */
 
 .btn {
+  display: block;
   width: 100%;
   padding: 1rem;
   border: none;
@@ -105,15 +103,16 @@ main {
 }
 
 .add-button {
+  width: 9rem;
   display: flex;
   background: white;
   color: var(--rose-900);
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border: 1px solid var(--rose-400);
 }
 
-@media screen and (min-width: 400px) {
+/* @media screen and (min-width: 400px) {
   .add-button {
     padding: 0.7rem 0.5rem;
   }
@@ -123,10 +122,11 @@ main {
   .add-button {
     padding: 0.6rem 0.7rem;
   }
-}
+} */
+
 .button-text {
   display: block;
-  margin-left: min(-5%, 0.5rem);
+  margin-left: min(5%, 0.5rem);
   font-weight: 700;
   font-size: 0.8rem;
 }
@@ -151,12 +151,13 @@ main {
 }
 
 .options {
+  width: 9rem;
   background-color: var(--red);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  border-radius: inherit;
+  border-radius: 2em;
 }
 
 .custom-checkbox {
@@ -175,25 +176,18 @@ main {
   cursor: pointer;
   transition: fill 0.3s ease; /* Optional: for smooth color change */
 }
-
-input[type="checkbox"]#decrement:active
-  ~ label[for="decrement"].custom-checkbox {
+input[type="checkbox"].decrement:active + label.custom-checkbox {
   background: white;
   color: var(--red);
 }
 
-input[type="checkbox"]#increment:active
-  ~ label[for="increment"].custom-checkbox {
+input[type="checkbox"].increment:active + label.custom-checkbox {
   background: white;
   color: var(--red);
 }
 
-input[type="checkbox"]#decrement:active
-  ~ label[for="decrement"].custom-checkbox
-  svg,
-input[type="checkbox"]#increment:active
-  ~ label[for="increment"].custom-checkbox
-  svg {
+input[type="checkbox"].decrement:active + label.c ustom-checkbox svg,
+input[type="checkbox"].increment:active + label.custom-checkbox svg {
   fill: currentColor;
 }
 
@@ -207,9 +201,7 @@ input[type="checkbox"] {
 
 .selected,
 .confirmation-body {
-  background-color: var(--rose-50);
   padding: 1rem;
-  border-radius: 0.5rem;
 }
 
 .cart-header-text {
@@ -331,4 +323,54 @@ input[type="checkbox"] {
 
 .confirmation-info {
   margin-left: -4rem;
+}
+
+.cart {
+  padding: 0.5rem;
+}
+
+#cart-bg {
+  padding: 1rem;
+  background-color: var(--rose-50);
+  height: fit-content;
+  border-radius: 0.5rem;
+}
+
+.hide {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.confirmation-backdrop {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.confirmation-body {
+  background: var(--rose-50);
+  position: absolute;
+  height: 100%;
+  top: 3rem;
+  width: 100%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+@media screen and (min-width: 900px) {
+  .confirmation-body {
+    top: 3rem;
+    left: 30%;
+    right: 30%;
+    height: fit-content;
+    width: 40%;
+    border-radius: 1rem;
+  }
 }
