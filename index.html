@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
-
+  <!-- Google font link  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" />
-
+  <!-- stylesheet link -->
   <link rel="stylesheet" href="./css/style.css" />
 
   <title>Frontend Mentor | Product list with cart</title>
@@ -18,9 +18,11 @@
 
 <body>
   <main>
+    <!-- Desserts section -->
     <section class="desserts">
       <h2 class="dessert-header">Desserts</h2>
       <div class="desserts-wrapper" id="desserts-wrapper">
+        <!-- Load desserts items here -->
         <!-- <article class="single-dessert">
             <div class="dessert-image">
               <img
@@ -65,12 +67,11 @@
           </article> -->
       </div>
     </section>
-
+    <!-- Cart section -->
     <section class="cart">
       <div class="cart-header">
         <p class="cart-header-text">Your Cart <span class="qty">(0)</span></p>
       </div>
-
       <!-- empty cart -->
       <div class="empty-cart-img">
         <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="none" viewBox="0 0 128 128">
@@ -96,8 +97,10 @@
         </svg>
       </div>
 
-      <div class="cart-info"></div>
-
+      <div class="cart-info">
+        <!-- Show items added to the cart here  -->
+      </div>
+      <!-- Cart total  -->
       <div class="total-wrapper hide">
         <div class="order-total">
           <h4 class="order-text">Order Total</h4>
@@ -117,13 +120,13 @@
             <span class="carbon-highlighted">carbon-neutral</span> delivery
           </p>
         </div>
-
+        <!-- Confirmation section  -->
         <div class="confirm-section">
           <button class="confirm-btn btn">Confirm Order</button>
         </div>
       </div>
     </section>
-
+    <!-- Confirmed Items section  -->
     <div class="confirmation hide">
       <div class="confirmation-backdrop">
         <div class="confirmation-body">
@@ -141,6 +144,7 @@
             <p class="confirmation-text">We hope you enjoy your food</p>
           </div>
           <div class="confirmation-item-wrapper">
+            <!-- Show all items in cart here  -->
             <div class="confirmation-item">
               <div class="item-thumbnail">
                 <img src="./assets/images/image-tiramisu-thumbnail.jpg" alt="" />
@@ -157,17 +161,18 @@
               </div>
             </div>
           </div>
+          <!-- Show total here  -->
           <div class="order-total">
             <h4 class="order-text">Order Total</h4>
             <h2 class="order-total">$46.50</h2>
           </div>
+          <!-- Start new order button  -->
           <div class="start-order">
             <button class="new-order btn">Start New Order</button>
           </div>
         </div>
       </div>
     </div>
-
     <!-- end of confirmation -->
   </main>
   <script src="../js/script.js"></script>

@@ -1,6 +1,7 @@
 const dessertWrapper = document.querySelector("#desserts-wrapper");
 const cartInfo = document.getElementsByClassName("cart-info");
 
+// Fetch dessert items
 async function getProducts() {
   const data = await fetch("../data/data.json");
   const response = await data.json();
@@ -8,18 +9,11 @@ async function getProducts() {
 }
 
 getProducts();
-
+//Display the dessert items on the page
 function addDesserts(desserts) {
   const dessertsHtml = desserts
-    .map((dessert) => {
-      const {
-        image: { desktop },
-        name,
-        category,
-        price,
-      } = dessert;
+    .map(({ image: { desktop }, name, category, price }) => {
       return `
-  
             <article class="single-dessert">
             <div class="dessert-image">
               <img
@@ -61,7 +55,6 @@ function addDesserts(desserts) {
               <h4 class="dessert-price">$${price.toFixed(2)}</h4>
             </div>
           </article>
-  
   `;
     })
     .join("");
@@ -71,30 +64,32 @@ function addDesserts(desserts) {
   showConfirmation();
   newOrder();
 }
-
+// Add event listeners to the .add-to-cart buttons
 function getAddBtn() {
   const addBtn = Array.from(document.getElementsByClassName("add-to-cart"));
-  addBtn.forEach((btn) => btn.addEventListener("click", getChild));
+  addBtn.forEach((btn, id) => btn.addEventListener("click", getid(id)));
 }
-
-function getChild(e) {
-  const target = e.currentTarget; // Use e.currentTarget to reference the clicked button
-  while (target.firstChild) {
-    target.removeChild(target.firstChild); // Remove all child nodes
-  }
-  target.appendChild(addOption()); // Add new options
+// Eventlistener function to send id
+function getid(id) {
+  return function getChild(e) {
+    const target = e.currentTarget; // Use e.currentTarget to reference the clicked button
+    while (target.firstChild) {
+      target.removeChild(target.firstChild); // Remove all child nodes in the button
+    }
+    target.appendChild(addOption(id)); // Add new options
+  };
 }
-
-let j = 0;
-function addOption() {
+// Update the contents of the button to have a increment and decrement sign
+// TODO let all the increment and decrement signs have a different ids for each one
+// add eventlisteners to them to increment and decrement them and keep count
+function addOption(id) {
   const options = document.createElement("div");
   options.classList.add("options");
-  const decrementId = `decrement-${j}`;
-  const incrementId = `increment-${j}`;
-  j++;
+  const decrementId = `decrement-${id}`;
+  const incrementId = `increment-${id}`;
   options.innerHTML = `
-    <input type="checkbox" id="${decrementId}" class="decrement" />
-    <label for="${decrementId}" class="custom-checkbox">
+    <div type="checkbox" id="${decrementId}" class="decrement" data-count="0" >
+    <div for="${decrementId}" class="custom-checkbox">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="10"
@@ -104,12 +99,12 @@ function addOption() {
       >
         <path fill="#currentColor" d="M0 .375h10v1.25H0V.375Z" />
       </svg>
-    </label>
-
+    </div>
+    </div>
     <div class="count">1</div>
 
-    <input type="checkbox" id="${incrementId}" class="increment" />
-    <label for="${incrementId}" class="custom-checkbox">
+    <div type="checkbox" id="${incrementId}" class="increment" >
+    <div for="${incrementId}" class="custom-checkbox">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="10"
@@ -122,11 +117,18 @@ function addOption() {
           d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"
         />
       </svg>
-    </label>
+    </div>
+    </div>
   `;
+  // addincrement(incrementId);
   return options;
 }
 
+// function addincrement(id) {
+//   item = document.getElementById(id);
+//   count = item.querySelector("data-count");
+//   console.log(count);
+// }
 function add() {
   const change = Array.from(document.getElementsByClassName("add-button"));
   change.forEach((item) => item.addEventListener("click", addToCart));
